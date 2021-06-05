@@ -12,7 +12,7 @@ Step 3: Set the following settings in Sidebery Settings:
 - Tabs Tree Level Limit -> 1
 - Font Size -> XXS
 
-Step 4: Go to Sidebery Settings -> Styles Editor -> Sidebar and paste in my Sidebery Styles css
+Step 4: Go to Sidebery Settings -> Styles Editor -> Sidebar and paste in the content of my Sidebery CSS
 
 Step 5: Copy the text of my userChrome.css into your userChrome.css file and save it
 
