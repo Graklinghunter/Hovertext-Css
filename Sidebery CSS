@@ -1,0 +1,46 @@
+
+/* Adjust Tab Position */
+.Tab, .PinnedTab{
+	left: -1px
+}
+
+/* Hide Tab Text until hover (shove it offscreen)*/
+.Tab .title {
+  left:8px;
+}
+
+/* Hide the close button */
+.Tab .close {
+  display:none;
+}
+
+
+/* Brighten favicons for placeholders */
+.Tab .placeholder > svg,
+.PinnedTab .placeholder > svg,
+.Bookmark .fav > .placeholder > svg{
+	fill: var(--tabs-fg)
+}
+.Tab[data-active] .placeholder > svg,
+.PinnedTab[data-active] .placeholder > svg{
+	fill: var(--tabs-activated-fg)
+}
+
+/*Set button and tab dimensions*/
+#root{
+	--nav-btn-width: 25px;
+	--nav-btn-height: 28px;
+	--tabs-pinned-height: 22px;
+	--tabs-pinned-width: 250px;
+	--tabs-height: 25px;
+	--tabs-indent: 10px;
+}
+/*Set custom colors*/
+@media {
+	#root[data-style="auto"],
+	#root[data-style="dark"]{
+	--tabs-bg-hover: #334a34ff;
+	--tabs-activated-bg: #142814ff;
+	--tabs-selected-bg: #03760cff;
+	--tabs-lvl-indicator-bg: #8cffffff;
+}}
