@@ -1,0 +1,68 @@
+#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
+    visibility: collapse !important;
+}
+ 
+#nav-bar {
+    margin-right:140px;
+}
+ 
+/* Some space on top to allow window dragging */
+#titlebar {
+    appearance: none !important;
+    height: 5px;
+}
+ 
+/* Fix for main menu calling by Alt button */
+#titlebar > #toolbar-menubar {
+    margin-top: 10px;
+}
+ 
+.titlebar-buttonbox-container {
+  display: block;
+  height: 50px;
+  margin-top: -5px;
+}
+ 
+.titlebar-buttonbox-container .titlebar-button {
+  display: block;
+  height: 45px;
+}
+ 
+:root {
+  --sidebar-min-width: 62px;
+  --sidebar-visible-width: 250px;
+}
+
+#sidebar-header {
+  overflow: hidden !important;
+}
+
+#sidebar-box #sidebar-header {
+  display: none !important;
+}
+
+#sidebar,
+#sidebar-header {
+  position: relative !important;
+  min-width: var(--sidebar-min-width) !important;
+  max-width: var(--sidebar-min-width) !important;
+transition: .1s ease .05s;
+  z-index:1;
+}
+
+#sidebar-box:hover :-moz-any(#sidebar,#sidebar-header) {
+  background-color: var(--toolbar-bgcolor) !important;
+  min-width: var(--sidebar-visible-width) !important;
+  max-width: var(--sidebar-visible-width) !important;
+  margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
+  z-index:1;
+  position: relative !important;
+transition: .1s ease .05s;
+
+}
