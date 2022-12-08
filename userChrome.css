@@ -47,12 +47,11 @@
   display: none !important;
 }
 
-#sidebar,
-#sidebar-header {
+#sidebar-box {
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
   max-width: var(--sidebar-min-width) !important;
-transition: .1s ease .05s;
+  transition: .1s ease .05s;
   z-index:1;
 }
 
