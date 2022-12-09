@@ -1,52 +1,66 @@
-#main-window[tabsintitlebar="true"]:not([extradragspace="true"]) #TabsToolbar > .toolbar-items {
-  opacity: 0;
-  pointer-events: none;
-}
+    
+	/* Space at the right of nav-bar for window controls */
+    :root[tabsintitlebar]{
+        --uc-window-control-width: 137px; 
+    }
+    #nav-bar{
+        border-inline: var(--uc-window-drag-space-width,80px) solid var(--toolbar-bgcolor) ;
+        border-inline-style: solid !important;
+        border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
+        margin-left: -80px;
+    }
+
+    /* Hide main tabs toolbar */
+    #TabsToolbar {
+        visibility: collapse !important;
+    }
+
+    /*Hide the Titlebar*/
+	:root {
+        --uc-toolbar-height: 38px;
+    }
+	:root:not([inFullscreen]) #nav-bar {
+        margin-top: calc(0px - var(--uc-toolbar-height));
+        z-index: 2;
+    }
+	#toolbar-menubar {
+        min-height: unset !important;
+        height: var(--uc-toolbar-height) !important;
+        position: relative;
+    }
+
+    /* Line up the Windows controls with the rest of the icons in the toolbar. */
+    .titlebar-buttonbox-container {
+        margin-top: 3px;
+    }
+
+    /* Sets the button design and ensures they appear in the right spot. */
+    .titlebar-buttonbox {
+        z-index:3 !important;
+         padding-right:3px; 
+    }
+    .titlebar-buttonbox * {
+        border-radius: 5px; 
+        width:35px;
+        height:38px;
+    }
 
 
-#main-window:not([tabsintitlebar="true"]) #TabsToolbar {
-    visibility: collapse !important;
-}
- 
-#nav-bar {
-    margin-right:140px;
-}
- 
-/* Some space on top to allow window dragging */
-#titlebar {
-    appearance: none !important;
-    height: 5px;
-}
- 
-/* Fix for main menu calling by Alt button */
-#titlebar > #toolbar-menubar {
-    margin-top: 10px;
-}
- 
-.titlebar-buttonbox-container {
-  display: block;
-  height: 50px;
-  margin-top: -5px;
-}
- 
-.titlebar-buttonbox-container .titlebar-button {
-  display: block;
-  height: 45px;
-}
- 
+ /*Set Sidebar size variables. Adjust these if you want to change the dimensions of the sidebar*/
 :root {
   --sidebar-min-width: 62px;
   --sidebar-visible-width: 250px;
 }
 
+/*Hide the sidebar header*/
 #sidebar-header {
   overflow: hidden !important;
 }
-
 #sidebar-box #sidebar-header {
   display: none !important;
 }
 
+/*Configure Collapsed size*/
 #sidebar-box {
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
@@ -55,6 +69,7 @@
   z-index:1;
 }
 
+/*Configure Expanded size and animation*/
 #sidebar-box:hover :-moz-any(#sidebar,#sidebar-header) {
   background-color: var(--toolbar-bgcolor) !important;
   min-width: var(--sidebar-visible-width) !important;
@@ -62,6 +77,5 @@
   margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
   z-index:1;
   position: relative !important;
-transition: .1s ease .05s;
-
+  transition: .1s ease .05s;
 }
