@@ -1,55 +1,17 @@
-    
-	/* Space at the right of nav-bar for window controls */
-    :root[tabsintitlebar]{
-        --uc-window-control-width: 137px; 
-    }
-    #nav-bar{
-        border-inline: var(--uc-window-drag-space-width,80px) solid var(--toolbar-bgcolor) ;
-        border-inline-style: solid !important;
-        border-right-width: calc(var(--uc-window-control-width,0px) + var(--uc-window-drag-space-width,0px));
-        margin-left: -80px;
-    }
-
-    /* Hide main tabs toolbar */
-    #TabsToolbar {
-        visibility: collapse !important;
-    }
-
-    /*Hide the Titlebar*/
-	:root {
-        --uc-toolbar-height: 38px;
-    }
-	:root:not([inFullscreen]) #nav-bar {
-        margin-top: calc(0px - var(--uc-toolbar-height));
-        z-index: 2;
-    }
-	#toolbar-menubar {
-        min-height: unset !important;
-        height: var(--uc-toolbar-height) !important;
-        position: relative;
-    }
-
-    /* Line up the Windows controls with the rest of the icons in the toolbar. */
-    .titlebar-buttonbox-container {
-        margin-top: 3px;
-    }
-
-    /* Sets the button design and ensures they appear in the right spot. */
-    .titlebar-buttonbox {
-        z-index:3 !important;
-         padding-right:3px; 
-    }
-    .titlebar-buttonbox * {
-        border-radius: 5px; 
-        width:35px;
-        height:38px;
-    }
+/* Hide main tabs toolbar */
+#TabsToolbar {
+    visibility: collapse !important;
+}
 
 
  /*Set Sidebar size variables. Adjust these if you want to change the dimensions of the sidebar*/
 :root {
   --sidebar-min-width: 62px;
   --sidebar-visible-width: 250px;
+  --sidebar-hide-delay: 200ms; /* Wait 0.2s before hiding sidebar */
+  --transition-duration: 100ms;
+  --transition-type: ease;
+  --z-index-sidebar: 3;
 }
 
 /*Hide the sidebar header*/
@@ -60,22 +22,25 @@
   display: none !important;
 }
 
-/*Configure Collapsed size*/
-#sidebar-box {
+/*Configure Sidebar*/
+#sidebar-box{
+  background-color: var(--toolbar-bgcolor) !important;
   position: relative !important;
   min-width: var(--sidebar-min-width) !important;
-  max-width: var(--sidebar-min-width) !important;
-  transition: .1s ease .05s;
-  z-index:1;
+  width: var(--sidebar-min-width) !important;
+  max-width: var(--sidebar-visible-width) !important;
+  z-index: var(--z-index-sidebar);
 }
 
-/*Configure Expanded size and animation*/
-#sidebar-box:hover :-moz-any(#sidebar,#sidebar-header) {
-  background-color: var(--toolbar-bgcolor) !important;
+
+#sidebar-header,
+#sidebar{
+  transition: min-width var(--transition-duration) var(--transition-type) var(--sidebar-hide-delay) !important;
+  min-width: var(--sidebar-min-width) !important;
+  will-change: min-width;
+}
+#sidebar-box:hover > #sidebar-header,
+#sidebar-box:hover > #sidebar{
   min-width: var(--sidebar-visible-width) !important;
-  max-width: var(--sidebar-visible-width) !important;
-  margin-right: calc((var(--sidebar-visible-width) - var(--sidebar-min-width)) * -1) !important;
-  z-index:1;
-  position: relative !important;
-  transition: .1s ease .05s;
+  transition-delay: 0ms !important;
 }
