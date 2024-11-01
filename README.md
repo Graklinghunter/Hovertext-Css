@@ -1,6 +1,8 @@
 # Hovertext-Css
 Custom CSS for use with Sidebery 5. This maximizes vertical real-estate in your browser by migrating the tabs to a dynamic sidebar and hiding everything else that normally sits above the URL bar. It also capitalizes on Sidebery's flexibility to create a more robust browsing experience by allowing you to organize your tabs into categorized panels.
 
+UPDATE: After Firefox changes in recent versions up to/including Firefox 132, as well as newer versions of Sidebery v5, some features in the original CSS I wrote broke. I've uploaded changes today (2024/11/1) to bring it back as close to proper functionality as I know how. The most noticeable change compared to the original (what's represented in images below) is that the Window Control buttons (close/minimize/maximize) are no longer moved down into the URL bar, and the Titlebar (File/Edit/etc) is simply hidden by default rather than completely disabled. In this new version, simply press the ALT key to show the titlebar and window controls.
+
 Sample image:
 ![alt text](https://i.imgur.com/VcuTwih.png)
 
@@ -13,7 +15,7 @@ Step 1: Ensure you have your userChrome.css file and folderpath created properly
 
 (Note that you will need to open about:config and enable the pref toolkit.legacyUserProfileCustomizations.stylesheets in order for the .css file to do anything)
 
-Step 2: Install the Sidebery v5 beta. https://github.com/mbnuqw/sidebery
+Step 2: Install the Sidebery (must be v5 or newer). https://github.com/mbnuqw/sidebery
 
 Step 3: Open Sidebery Settings and navigate to the bottom of the main Page. Select Import Addon Data and import my Sidebery .json file. This will come with my personal Panel configurations - you should navigate up to the "Navigation Bar" settings and add/remove/change the Panels as you see fit.
 
