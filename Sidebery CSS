@@ -1,12 +1,12 @@
+#root.root {--accent: #47cfffff;}
+#root.root {--tabs-pinned-height: 22px;}
+#root.root {--tabs-lvl-opacity: 0.2;}
+#root.root {--nav-delimiter-size: 12px;}
+#root.root {--nav-btn-height: 30px;}
+#root.root {--nav-btn-width: 23px;}
+/* OLD STYLES
 
 /* Hide Tab Text until hover (shoves it just outside the collapsed width)*/
 .Tab .title {
   left:10px;
-}
-
-/*Set nav button and pinned tab dimensions*/
-#root{
-	--nav-btn-width: 23px;
-	--nav-btn-height: 30px;
-	--tabs-pinned-height: 22px;
 }
