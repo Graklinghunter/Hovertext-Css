@@ -2,45 +2,54 @@
 #TabsToolbar {
     visibility: collapse !important;
 }
+/*Hide the sidebar header*/
+#sidebar-header {
+overflow: hidden !important;
+}
+#sidebar-box #sidebar-header {
+display: none !important;
+}
 
-
- /*Set Sidebar size variables. Adjust these if you want to change the dimensions of the sidebar*/
+/*Set Sidebar size variables. Adjust these if you want to change the dimensions of the sidebar*/
 :root {
   --sidebar-min-width: 62px;
   --sidebar-visible-width: 250px;
-  --sidebar-hide-delay: 200ms; /* Wait 0.2s before hiding sidebar */
+  --sidebar-hide-delay: 80ms; /* Wait 0.08s before hiding sidebar */
   --transition-duration: 100ms;
   --transition-type: ease;
   --z-index-sidebar: 3;
 }
 
-/*Hide the sidebar header*/
-#sidebar-header {
-  overflow: hidden !important;
-}
-#sidebar-box #sidebar-header {
-  display: none !important;
-}
+
 
 /*Configure Sidebar*/
 #sidebar-box{
-  background-color: var(--toolbar-bgcolor) !important;
-  position: relative !important;
-  min-width: var(--sidebar-min-width) !important;
-  width: var(--sidebar-min-width) !important;
-  max-width: var(--sidebar-visible-width) !important;
-  z-index: var(--z-index-sidebar);
+background-color: var(--toolbar-bgcolor) !important;
+position: relative !important;
+min-width: var(--sidebar-min-width) !important;
+width: var(--sidebar-min-width) !important;
+max-width: var(--sidebar-visible-width) !important;
+z-index: var(--z-index-sidebar);
 }
-
 
 #sidebar-header,
 #sidebar{
-  transition: min-width var(--transition-duration) var(--transition-type) var(--sidebar-hide-delay) !important;
-  min-width: var(--sidebar-min-width) !important;
-  will-change: min-width;
+transition: min-width var(--transition-duration) var(--transition-type) var(--sidebar-hide-delay) !important;
+min-width: var(--sidebar-min-width) !important;
+will-change: min-width;
 }
 #sidebar-box:hover > #sidebar-header,
-#sidebar-box:hover > #sidebar{
-  min-width: var(--sidebar-visible-width) !important;
-  transition-delay: 0ms !important;
+#sidebar-box:hover > .sidebar-browser-stack > #sidebar {
+min-width: var(--sidebar-visible-width) !important;
+transition-delay: 0ms !important;
 }
+
+/* Remove sidebar resize splitter */
+#sidebar-splitter {
+display: none !important;
+min-width: 0 !important;
+width: 0 !important;
+border: none !important;
+background-color: transparent !important;
+}
+
